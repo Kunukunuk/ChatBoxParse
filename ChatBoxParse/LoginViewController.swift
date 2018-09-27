@@ -7,13 +7,40 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
+    
+    @IBOutlet weak var usernameText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func logIn(_ sender: UIButton) {
+        
+        let username = usernameText.text ?? ""
+        let password = passwordText.text ?? ""
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print("User log in failed: \(error.localizedDescription)")
+            } else {
+                print("User logged in successfully")
+                // display view controller that needs to shown after successful login
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func register(_ sender: UIButton) {
     }
     
 
