@@ -1,0 +1,6 @@
+framework module Pods_ChatBoxParseUITests {
+  umbrella header "Pods-ChatBoxParseUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
