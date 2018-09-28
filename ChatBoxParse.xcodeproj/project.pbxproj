@@ -14,6 +14,7 @@
 		0D6E3737215DA174006538EA /* ChatBoxParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6E3736215DA174006538EA /* ChatBoxParseTests.swift */; };
 		0D6E3742215DA174006538EA /* ChatBoxParseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6E3741215DA174006538EA /* ChatBoxParseUITests.swift */; };
 		0D6E3750215DA308006538EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6E374F215DA308006538EA /* LoginViewController.swift */; };
+		0D6E3752215DA6EF006538EA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6E3751215DA6EF006538EA /* RegistrationViewController.swift */; };
 		6EB9FFF1AE72A1D900EA5000 /* Pods_ChatBoxParseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E8205B9B457D1DD36EDE3F /* Pods_ChatBoxParseUITests.framework */; };
 		BD80E2ADDDF0B1770FAABFB6 /* Pods_ChatBoxParseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93D2828B776991541786E8E /* Pods_ChatBoxParseTests.framework */; };
 		FF5BC68C0D9BE589E2A05589 /* Pods_ChatBoxParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABC88DD840CFCE60BE1E270 /* Pods_ChatBoxParse.framework */; };
@@ -51,6 +52,7 @@
 		0D6E3741215DA174006538EA /* ChatBoxParseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBoxParseUITests.swift; sourceTree = "<group>"; };
 		0D6E3743215DA174006538EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D6E374F215DA308006538EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0D6E3751215DA6EF006538EA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		53E8205B9B457D1DD36EDE3F /* Pods_ChatBoxParseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatBoxParseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6626B2DC06D8FB0980838A16 /* Pods-ChatBoxParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatBoxParse.debug.xcconfig"; path = "Target Support Files/Pods-ChatBoxParse/Pods-ChatBoxParse.debug.xcconfig"; sourceTree = "<group>"; };
 		6823A2BE327DE1DAABEBBB12 /* Pods-ChatBoxParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatBoxParse.release.xcconfig"; path = "Target Support Files/Pods-ChatBoxParse/Pods-ChatBoxParse.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				0D6E3721215DA173006538EA /* AppDelegate.swift */,
 				0D6E374F215DA308006538EA /* LoginViewController.swift */,
+				0D6E3751215DA6EF006538EA /* RegistrationViewController.swift */,
 				0D6E3725215DA173006538EA /* Main.storyboard */,
 				0D6E3728215DA174006538EA /* Assets.xcassets */,
 				0D6E372A215DA174006538EA /* LaunchScreen.storyboard */,
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6E3752215DA6EF006538EA /* RegistrationViewController.swift in Sources */,
 				0D6E3750215DA308006538EA /* LoginViewController.swift in Sources */,
 				0D6E3722215DA173006538EA /* AppDelegate.swift in Sources */,
 			);
