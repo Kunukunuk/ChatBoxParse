@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class RegistrationViewController: UIViewController {
 
@@ -34,6 +35,21 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func registerAccount(_ sender: UIButton) {
+        let newUser = PFUser()
+        newUser["name"] = nameText.text!
+        //let user = UsersObject()
+        newUser.username = usernameText.text
+        newUser.password = passwordText.text
+        newUser.email = emailText.text
+        
+        newUser.signUpInBackground { (success: Bool, error: Error?) in
+            if success {
+                print("created new user")
+                self.performSegue(withIdentifier: "finishedRegister", sender: nil)
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
     }
     
     /*
