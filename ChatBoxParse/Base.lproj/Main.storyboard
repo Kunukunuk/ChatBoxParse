@@ -81,17 +81,46 @@
             </objects>
             <point key="canvasLocation" x="36" y="27"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--Messages-->
         <scene sceneID="gcE-pp-AhL">
             <objects>
                 <viewController id="X7V-jI-fdT" customClass="ChatViewController" customModule="ChatBoxParse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dPS-7z-f2w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqo-TY-eBi">
+                                <rect key="frame" x="311.5" y="74" width="53.5" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendMessage:" destination="X7V-jI-fdT" eventType="touchUpInside" id="b2p-SJ-7iN"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a message to Send" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PKn-to-ZtY">
+                                <rect key="frame" x="10" y="74" width="281.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PKn-to-ZtY" firstAttribute="leading" secondItem="WTg-Mu-J0l" secondAttribute="leading" constant="10" id="2GI-VD-MLc"/>
+                            <constraint firstItem="Vqo-TY-eBi" firstAttribute="width" secondItem="WTg-Mu-J0l" secondAttribute="width" multiplier="1:7" id="2GY-pz-jfb"/>
+                            <constraint firstItem="PKn-to-ZtY" firstAttribute="top" secondItem="WTg-Mu-J0l" secondAttribute="top" constant="10" id="8dl-BZ-KEA"/>
+                            <constraint firstItem="Vqo-TY-eBi" firstAttribute="leading" secondItem="PKn-to-ZtY" secondAttribute="trailing" constant="20" id="91k-dA-7fC"/>
+                            <constraint firstItem="Vqo-TY-eBi" firstAttribute="top" secondItem="PKn-to-ZtY" secondAttribute="top" id="RqS-fL-pcK"/>
+                            <constraint firstItem="Vqo-TY-eBi" firstAttribute="top" secondItem="WTg-Mu-J0l" secondAttribute="top" constant="10" id="fp2-5Y-g6r"/>
+                            <constraint firstItem="PKn-to-ZtY" firstAttribute="width" secondItem="WTg-Mu-J0l" secondAttribute="width" multiplier="3:4" id="htM-5W-Cos"/>
+                            <constraint firstItem="Vqo-TY-eBi" firstAttribute="bottom" secondItem="PKn-to-ZtY" secondAttribute="bottom" id="qdD-fA-1rx"/>
+                            <constraint firstItem="WTg-Mu-J0l" firstAttribute="trailing" secondItem="Vqo-TY-eBi" secondAttribute="trailing" constant="10" id="uds-o8-Dl1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WTg-Mu-J0l"/>
                     </view>
-                    <navigationItem key="navigationItem" id="z5X-K3-bSh"/>
+                    <navigationItem key="navigationItem" title="Messages" id="z5X-K3-bSh"/>
+                    <connections>
+                        <outlet property="messageText" destination="PKn-to-ZtY" id="R6B-Mf-QV4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHF-4R-SCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

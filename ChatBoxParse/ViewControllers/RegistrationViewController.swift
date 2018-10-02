@@ -36,8 +36,8 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func registerAccount(_ sender: UIButton) {
         let newUser = PFUser()
-        newUser["name"] = nameText.text!
-        //let user = UsersObject()
+        
+        newUser["name"] = nameText.text
         newUser.username = usernameText.text
         newUser.password = passwordText.text
         newUser.email = emailText.text
