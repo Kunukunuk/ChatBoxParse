@@ -7,6 +7,7 @@ target 'ChatBoxParse' do
 
   # Pods for ChatBoxParse
 	pod 'Parse'
+	pod 'ParseLiveQuery'
 
   target 'ChatBoxParseTests' do
     inherit! :search_paths

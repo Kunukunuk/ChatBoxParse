@@ -8,21 +8,27 @@
 
 import UIKit
 import Parse
+import ParseLiveQuery
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageText: UITextField!
+    var tableData: [PFObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
         
         let chatMessage = PFObject(className: "Message")
+        
         chatMessage["text"] = messageText.text ?? ""
         
         chatMessage.saveInBackground { (success, error) in
@@ -34,6 +40,50 @@ class ChatViewController: UIViewController {
             }
         }
         
+    }
+    
+    @objc func onTimer() {
+        
+        //let object = PFObject(className: "Message")
+        
+        let query = PFQuery(className: "Message")
+        query.addDescendingOrder("createdAt")
+        
+        query.findObjectsInBackground { (messages, error) in
+            if error == nil {
+                print("Messages: \(messages)")
+                /*
+                 for post in posts {
+                 
+                 let date = post.createdAt
+                 let dateFormatter = DateFormatter()
+                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss a" //Input Format
+                 dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+                 let stringDate = dateFormatter.string(from: date!)
+                 let currentDate = self.UTCToLocal(UTCDateString: stringDate)
+                 
+                 let caption = post["caption"] as! String
+                 let image = post["media"]
+                 
+                 self.tableData.append([currentDate: [image as AnyObject, caption as AnyObject]])
+                 self.tableView.reloadData()
+                 }
+                */
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath)
+        
+        return cell
     }
     
     /*
