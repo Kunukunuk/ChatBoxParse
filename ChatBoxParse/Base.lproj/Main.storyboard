@@ -166,13 +166,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Oof-vY-bJ4">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WTg-Mu-J0l" firstAttribute="trailing" secondItem="88j-If-Mm4" secondAttribute="trailing" constant="10" id="8Fg-Rx-Yz9"/>
                             <constraint firstItem="RhD-7m-cS7" firstAttribute="top" secondItem="88j-If-Mm4" secondAttribute="bottom" constant="10" id="GV1-Mn-hV6"/>
+                            <constraint firstItem="Oof-vY-bJ4" firstAttribute="centerX" secondItem="dPS-7z-f2w" secondAttribute="centerX" id="ILd-Vk-XHk"/>
                             <constraint firstItem="88j-If-Mm4" firstAttribute="leading" secondItem="WTg-Mu-J0l" secondAttribute="leading" constant="10" id="QhL-VW-ebe"/>
                             <constraint firstItem="WTg-Mu-J0l" firstAttribute="bottom" secondItem="RhD-7m-cS7" secondAttribute="bottom" id="Wpk-uH-tvf"/>
+                            <constraint firstItem="Oof-vY-bJ4" firstAttribute="centerY" secondItem="dPS-7z-f2w" secondAttribute="centerY" id="bzf-e7-t5p"/>
                             <constraint firstItem="RhD-7m-cS7" firstAttribute="leading" secondItem="WTg-Mu-J0l" secondAttribute="leading" id="hb4-Pb-soE"/>
                             <constraint firstItem="WTg-Mu-J0l" firstAttribute="trailing" secondItem="RhD-7m-cS7" secondAttribute="trailing" id="tn1-Et-Kcw"/>
                             <constraint firstItem="88j-If-Mm4" firstAttribute="top" secondItem="WTg-Mu-J0l" secondAttribute="top" constant="10" id="x83-Mr-cm2"/>
@@ -187,6 +193,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loading" destination="Oof-vY-bJ4" id="kmr-Dj-4Ta"/>
                         <outlet property="messageText" destination="PKn-to-ZtY" id="R6B-Mf-QV4"/>
                         <outlet property="tableView" destination="RhD-7m-cS7" id="awX-bo-F6P"/>
                     </connections>

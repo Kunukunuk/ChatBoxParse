@@ -14,6 +14,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageText: UITextField!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     var tableData: [String] = []
     var dateTable: [Date] = []
     
@@ -61,6 +63,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                         
                         self.dateTable.append(message.createdAt!)
                         self.tableData.append(message["text"] as! String)
+                        self.loading.stopAnimating()
                         self.tableView.reloadData()
                     }
                 }
@@ -71,6 +74,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     @objc func onTimer() {
         
+        loading.startAnimating()
         getMessage()
         
     }
