@@ -15,6 +15,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageText: UITextField!
     var tableData: [String] = []
+    var dateTable: [Date] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.rowHeight = UITableView.automaticDimension
         
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 60
         
-        getMessage()
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
@@ -55,31 +55,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             if error == nil {
                 if let messages = messages {
                     for message in messages {
-                        let user = message["username"] as? String
+                        self.dateTable.append(message.createdAt!)
                         self.tableData.append(message["text"] as! String)
                         self.tableView.reloadData()
-                        print("message: \(message)")
+                        
                     }
                 }
-                
-                
-                /*
-                 for post in posts {
-                 
-                 let date = post.createdAt
-                 let dateFormatter = DateFormatter()
-                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss a" //Input Format
-                 dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-                 let stringDate = dateFormatter.string(from: date!)
-                 let currentDate = self.UTCToLocal(UTCDateString: stringDate)
-                 
-                 let caption = post["caption"] as! String
-                 let image = post["media"]
-                 
-                 self.tableData.append([currentDate: [image as AnyObject, caption as AnyObject]])
-                 self.tableView.reloadData()
-                 }
-                 */
             } else {
                 print(error?.localizedDescription)
             }
@@ -87,37 +68,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     @objc func onTimer() {
         
-        //let object = PFObject(className: "Message")
-        
-        /*let query = PFQuery(className: "Message")
-        query.addDescendingOrder("createdAt")
-        
-        query.findObjectsInBackground { (messages, error) in
-            if error == nil {
-                print("Messages: \(messages)")
-                
-                
-                /*
-                 for post in posts {
-                 
-                 let date = post.createdAt
-                 let dateFormatter = DateFormatter()
-                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss a" //Input Format
-                 dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-                 let stringDate = dateFormatter.string(from: date!)
-                 let currentDate = self.UTCToLocal(UTCDateString: stringDate)
-                 
-                 let caption = post["caption"] as! String
-                 let image = post["media"]
-                 
-                 self.tableData.append([currentDate: [image as AnyObject, caption as AnyObject]])
-                 self.tableView.reloadData()
-                 }
-                */
-            } else {
-                print(error?.localizedDescription)
-            }
-        }*/
+        dateTable.removeAll()
+        tableData.removeAll()
+        getMessage()
         
     }
     
@@ -130,10 +83,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         
         let message = tableData[indexPath.row]
+        let date = dateTable[indexPath.row]
         
+        cell.dateLabel.text = "\(date)"
         cell.textLabel?.text = message
         
         return cell

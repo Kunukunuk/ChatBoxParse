@@ -106,8 +106,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="355" id="9M9-AM-ojv"/>
                                     <constraint firstItem="PKn-to-ZtY" firstAttribute="top" secondItem="88j-If-Mm4" secondAttribute="top" id="LTH-Xf-7Nc"/>
                                     <constraint firstItem="PKn-to-ZtY" firstAttribute="leading" secondItem="88j-If-Mm4" secondAttribute="leading" id="QV0-dD-jNJ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="0.59999999999999998" id="c9n-ON-dBY"/>
                                     <constraint firstAttribute="trailing" secondItem="Vqo-TY-eBi" secondAttribute="trailing" id="dJb-LU-kkU"/>
                                     <constraint firstItem="Vqo-TY-eBi" firstAttribute="top" secondItem="88j-If-Mm4" secondAttribute="top" id="x80-L5-hpg"/>
                                 </constraints>
@@ -119,36 +121,42 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="91" id="434-W3-Iqk" customClass="ChatCell" customModule="ChatBoxParse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="434-W3-Iqk" id="UwP-dq-m5g">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="434-W3-Iqk" id="UwP-dq-m5g">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39O-OG-7LJ">
-                                                    <rect key="frame" x="15" y="36.5" width="345" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep8-Qv-pLJ">
+                                                    <rect key="frame" x="15" y="11.5" width="345" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="hp5-ff-ICW"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep8-Qv-pLJ">
-                                                    <rect key="frame" x="15" y="11" width="345" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39O-OG-7LJ">
+                                                    <rect key="frame" x="0.0" y="45.5" width="375" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="rCx-oi-Cqa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="top" secondItem="UwP-dq-m5g" secondAttribute="topMargin" id="2SF-wk-qR3"/>
-                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="trailing" secondItem="UwP-dq-m5g" secondAttribute="trailingMargin" id="6b7-aG-Ohu"/>
-                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="top" secondItem="Ep8-Qv-pLJ" secondAttribute="bottom" constant="5" id="O59-3h-Eyi"/>
-                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="leading" secondItem="UwP-dq-m5g" secondAttribute="leadingMargin" id="fsv-FU-IE4"/>
-                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="leading" secondItem="UwP-dq-m5g" secondAttribute="leadingMargin" id="k3N-Rd-TeU"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="39O-OG-7LJ" secondAttribute="bottom" id="okD-cb-Bc7"/>
-                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="trailing" secondItem="UwP-dq-m5g" secondAttribute="trailingMargin" id="yLa-WI-q6u"/>
+                                                <constraint firstAttribute="bottom" secondItem="39O-OG-7LJ" secondAttribute="bottom" id="AaZ-Vc-7mx"/>
+                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="trailing" secondItem="UwP-dq-m5g" secondAttribute="trailingMargin" id="BQM-oI-cDQ"/>
+                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="top" secondItem="Ep8-Qv-pLJ" secondAttribute="bottom" constant="10" id="Mp2-s3-7E0"/>
+                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="leading" secondItem="UwP-dq-m5g" secondAttribute="leading" id="N8c-pd-YBI"/>
+                                                <constraint firstAttribute="trailing" secondItem="39O-OG-7LJ" secondAttribute="trailing" id="TyD-O3-Of0"/>
+                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="leading" secondItem="UwP-dq-m5g" secondAttribute="leadingMargin" id="U4N-b3-8yy"/>
+                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="top" secondItem="UwP-dq-m5g" secondAttribute="topMargin" id="or9-Q8-M3S"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="Ep8-Qv-pLJ" id="VLB-gf-PKI"/>
                                             <outlet property="messageText" destination="39O-OG-7LJ" id="wU6-5Y-LxU"/>
-                                            <outlet property="nameLabel" destination="Ep8-Qv-pLJ" id="8Ou-XY-HnW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
