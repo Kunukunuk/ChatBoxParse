@@ -8,7 +8,6 @@
 
 import UIKit
 import Parse
-import ParseLiveQuery
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -23,6 +22,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.delegate = self
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.estimatedRowHeight = 50
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
@@ -52,6 +55,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         query.findObjectsInBackground { (messages, error) in
             if error == nil {
                 print("Messages: \(messages)")
+                
+                
                 /*
                  for post in posts {
                  
