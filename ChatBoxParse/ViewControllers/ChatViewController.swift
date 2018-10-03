@@ -40,6 +40,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             if success {
                 print("The message was saved!")
                 self.messageText.text = ""
+                self.getMessage()
             } else if let error = error {
                 print("Problem saving message: \(error.localizedDescription)")
             }
@@ -53,12 +54,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         query.findObjectsInBackground { (messages, error) in
             if error == nil {
+                self.tableData.removeAll()
+                self.dateTable.removeAll()
                 if let messages = messages {
                     for message in messages {
+                        
                         self.dateTable.append(message.createdAt!)
                         self.tableData.append(message["text"] as! String)
                         self.tableView.reloadData()
-                        
                     }
                 }
             } else {
@@ -68,8 +71,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     @objc func onTimer() {
         
-        dateTable.removeAll()
-        tableData.removeAll()
         getMessage()
         
     }
@@ -89,7 +90,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let date = dateTable[indexPath.row]
         
         cell.dateLabel.text = "\(date)"
-        cell.textLabel?.text = message
+        cell.messageText.text = message
         
         return cell
     }
