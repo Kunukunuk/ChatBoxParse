@@ -21,6 +21,17 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        checkIsLoggedIn()
+    }
+    
+    func checkIsLoggedIn () {
+        if PFUser.current() != nil {
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }
+    }
     
     func loginAlert(with message: String) {
         
@@ -56,10 +67,10 @@ class LoginViewController: UIViewController {
         
     }
     
-    
-    @IBAction func register(_ sender: UIButton) {
+    @IBAction func unwindToLoginScreen(_ unwindSegue: UIStoryboardSegue) {
+        //let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
     }
-    
 
     /*
     // MARK: - Navigation

@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ChatBoxParse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="ChatBoxParse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xWh-KU-4lL"/>
                                     <segue destination="WE9-J4-Cg5" kind="presentation" id="r4H-UD-3Je"/>
                                 </connections>
                             </button>
@@ -124,20 +123,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39O-OG-7LJ">
-                                                    <rect key="frame" x="15" y="11" width="345" height="69"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39O-OG-7LJ">
+                                                    <rect key="frame" x="15" y="36.5" width="345" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep8-Qv-pLJ">
+                                                    <rect key="frame" x="15" y="11" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="top" secondItem="UwP-dq-m5g" secondAttribute="topMargin" id="640-Ol-yc4"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="39O-OG-7LJ" secondAttribute="trailing" id="FBg-WY-tOM"/>
-                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="leading" secondItem="UwP-dq-m5g" secondAttribute="leadingMargin" id="PfW-wp-C3g"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="39O-OG-7LJ" secondAttribute="bottom" id="e0Q-IE-bfb"/>
+                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="top" secondItem="UwP-dq-m5g" secondAttribute="topMargin" id="2SF-wk-qR3"/>
+                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="trailing" secondItem="UwP-dq-m5g" secondAttribute="trailingMargin" id="6b7-aG-Ohu"/>
+                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="top" secondItem="Ep8-Qv-pLJ" secondAttribute="bottom" constant="5" id="O59-3h-Eyi"/>
+                                                <constraint firstItem="39O-OG-7LJ" firstAttribute="leading" secondItem="UwP-dq-m5g" secondAttribute="leadingMargin" id="fsv-FU-IE4"/>
+                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="leading" secondItem="UwP-dq-m5g" secondAttribute="leadingMargin" id="k3N-Rd-TeU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="39O-OG-7LJ" secondAttribute="bottom" id="okD-cb-Bc7"/>
+                                                <constraint firstItem="Ep8-Qv-pLJ" firstAttribute="trailing" secondItem="UwP-dq-m5g" secondAttribute="trailingMargin" id="yLa-WI-q6u"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageText" destination="39O-OG-7LJ" id="wU6-5Y-LxU"/>
+                                            <outlet property="nameLabel" destination="Ep8-Qv-pLJ" id="8Ou-XY-HnW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -154,13 +166,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WTg-Mu-J0l"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Messages" id="z5X-K3-bSh"/>
+                    <navigationItem key="navigationItem" title="Messages" id="z5X-K3-bSh">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="YjF-Ad-ysn">
+                            <connections>
+                                <segue destination="bcs-lD-ZO2" kind="unwind" identifier="logout" unwindAction="unwindToLoginScreen:" id="s4H-43-GzL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageText" destination="PKn-to-ZtY" id="R6B-Mf-QV4"/>
                         <outlet property="tableView" destination="RhD-7m-cS7" id="awX-bo-F6P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHF-4R-SCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bcs-lD-ZO2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1879.2" y="26.53673163418291"/>
         </scene>
@@ -264,6 +283,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UgB-2S-jW4"/>
+        <segue reference="Yxr-WS-hIq"/>
     </inferredMetricsTieBreakers>
 </document>
