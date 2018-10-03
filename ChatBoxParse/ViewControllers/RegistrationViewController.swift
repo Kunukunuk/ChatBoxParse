@@ -15,6 +15,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     
     
     override func viewDidLoad() {
@@ -42,10 +44,12 @@ class RegistrationViewController: UIViewController {
         newUser.password = passwordText.text
         newUser.email = emailText.text
         
+        activity.startAnimating()
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 print("created new user")
                 self.performSegue(withIdentifier: "finishedRegister", sender: nil)
+                self.activity.stopAnimating()
             } else {
                 print(error?.localizedDescription)
             }

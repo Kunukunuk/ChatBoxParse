@@ -96,7 +96,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Logout" {
+        if segue.identifier == "logout" {
             PFUser.logOutInBackground { (error: Error?) in
                 // PFUser.current() will now be nil
             }

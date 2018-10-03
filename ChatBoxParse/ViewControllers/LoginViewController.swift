@@ -14,11 +14,11 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -53,6 +53,7 @@ class LoginViewController: UIViewController {
         if username.isEmpty || password.isEmpty {
             loginAlert(with: "empty")
         } else {
+            loading.startAnimating()
             PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
                 if let error = error {
                     print("User log in failed: \(error.localizedDescription)")
@@ -60,6 +61,7 @@ class LoginViewController: UIViewController {
                 } else {
                     print("User logged in successfully")
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    self.loading.stopAnimating()
                     // display view controller that needs to shown after successful login
                 }
             }
