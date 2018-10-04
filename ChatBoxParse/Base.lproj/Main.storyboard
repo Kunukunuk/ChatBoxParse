@@ -256,8 +256,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44M-ec-UPN">
-                                <rect key="frame" x="153" y="370" width="72" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44M-ec-UPN">
+                                <rect key="frame" x="151.5" y="370" width="72" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
@@ -286,6 +286,7 @@
                             <constraint firstItem="Xp2-os-1jB" firstAttribute="leading" secondItem="ZLY-HA-DtN" secondAttribute="leading" constant="60" id="etC-ob-o1a"/>
                             <constraint firstItem="2VM-lk-WY1" firstAttribute="leading" secondItem="ZLY-HA-DtN" secondAttribute="leading" constant="60" id="h6X-at-CIT"/>
                             <constraint firstItem="ZLY-HA-DtN" firstAttribute="centerX" secondItem="CqK-yq-JIo" secondAttribute="centerX" id="jSJ-hV-B2J"/>
+                            <constraint firstItem="44M-ec-UPN" firstAttribute="centerX" secondItem="2VM-lk-WY1" secondAttribute="centerX" id="krH-qd-YrF"/>
                             <constraint firstItem="cFi-su-vKe" firstAttribute="top" secondItem="ZLY-HA-DtN" secondAttribute="top" constant="50" id="rDa-LZ-I3s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZLY-HA-DtN"/>
