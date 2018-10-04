@@ -95,6 +95,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let message = tableData[indexPath.row]
         let date = dateTable[indexPath.row]
         
+        cell.bubbleView.layer.cornerRadius = 16
+        cell.bubbleView.clipsToBounds = true
         cell.dateLabel.text = "\(date)"
         cell.messageText.text = message
         
