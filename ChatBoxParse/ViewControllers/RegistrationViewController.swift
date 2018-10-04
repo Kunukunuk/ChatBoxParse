@@ -24,9 +24,9 @@ class RegistrationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    func registerAlert() {
+    func registerAlert(reason: String) {
         
-        let alertController = UIAlertController(title: "Registration Error", message: "Can't register this account", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Registration Error", message: "Can't register this account because \(reason)", preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             self.dismiss(animated: true, completion: nil)
@@ -51,7 +51,10 @@ class RegistrationViewController: UIViewController {
                 self.performSegue(withIdentifier: "finishedRegister", sender: nil)
                 self.activity.stopAnimating()
             } else {
+                
+                self.registerAlert(reason: error!.localizedDescription)
                 print(error?.localizedDescription)
+                self.activity.stopAnimating()
             }
         }
     }

@@ -33,9 +33,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func loginAlert(with message: String) {
+    func loginAlert(with message: String? = "Email or password is empty") {
         
-        let alertController = UIAlertController(title: "Invalid Login", message: "Email or password is \(message)", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Invalid Login", message: "\(message!)", preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             self.dismiss(animated: true, completion: nil)
@@ -51,13 +51,14 @@ class LoginViewController: UIViewController {
         let password = passwordText.text ?? ""
         
         if username.isEmpty || password.isEmpty {
-            loginAlert(with: "empty")
+            loginAlert()
         } else {
             loading.startAnimating()
             PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
                 if let error = error {
                     print("User log in failed: \(error.localizedDescription)")
-                    self.loginAlert(with: "invalid")
+                    self.loginAlert(with: error.localizedDescription)
+                    self.loading.stopAnimating()
                 } else {
                     print("User logged in successfully")
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
