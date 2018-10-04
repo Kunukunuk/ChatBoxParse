@@ -30,6 +30,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.estimatedRowHeight = 60
         
+        tableView.separatorStyle = .none
+        
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
